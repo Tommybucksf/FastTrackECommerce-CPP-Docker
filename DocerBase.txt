@@ -1,0 +1,40 @@
+docker build -t <tag_name> .   (webserver)
+
+// View available images:
+docker images
+
+// Delete an image:
+docker rmi <image_id>
+
+// Launching a container from an image:   (docker run -d -p 8080:8080 webserver )
+ /*
+<host_port>: port on the host.
+<container_port>: the port inside the container.
+<container_name>: the name you want to assign to the container.
+<image_name>: the name of the image from which the container will be launched.
+*/
+docker run -d -p <host_port>:<container_port> --name <container_name> <image_name>
+
+// View running containers:
+docker ps
+
+// View all containers (including stopped ones):
+docker ps -a
+
+// Stopping the container:
+docker stop <container_id_or_name>
+
+// Remove the container:
+docker rm <container_id_or_name>
+
+// View container logs:
+docker logs <container_id_or_name>
+
+// Launch the container in an interactive mode:
+docker run -it <image_name> /bin/bash
+
+// Save changes in the container as a new image:
+docker commit <container_id_or_name> <new_image_name>
+
+// Delete all stopped containers, unused images, networks, and build caches:
+docker system prune
